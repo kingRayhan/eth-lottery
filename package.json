@@ -1,0 +1,26 @@
+{
+  "name": "lottery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^27.4.7",
+    "simple-solc": "^1.0.1",
+    "web3": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingRayhan/eth-lottery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingRayhan/eth-lottery/issues"
+  },
+  "homepage": "https://github.com/kingRayhan/eth-lottery#readme"
+}

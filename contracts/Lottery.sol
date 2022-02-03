@@ -12,6 +12,10 @@ contract Lottery {
         return players;
     }
 
+    function numberOfPlayers() public view returns (uint256) {
+        return players.length;
+    }
+
     function join() public payable NeedMinimum(1 ether) {
         players.push(payable(msg.sender));
     }

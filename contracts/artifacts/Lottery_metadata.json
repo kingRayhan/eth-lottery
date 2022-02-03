@@ -39,6 +39,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "numberOfPlayers",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "owner",
 				"outputs": [
 					{
@@ -92,10 +105,10 @@
 	},
 	"sources": {
 		"contracts/Lottery.sol": {
-			"keccak256": "0x31a1febc743076594352bc3c13ecceb71806f677f3dd35b12e8761436c813e5c",
+			"keccak256": "0x823ce56740db1c90347a5642319834fc4d7ffb4ca343a1ffff053d2d3a44dcbf",
 			"urls": [
-				"bzz-raw://01c79d4a116a945fb985a434e772391088db89f427d8284affd9945ed2016bb3",
-				"dweb:/ipfs/QmbwphisU2Hoimda8icDntVzBM38tpEzmBgPgYxky6MAv7"
+				"bzz-raw://f67e7f2185ebe4a1c126ac87ef15da017e200e7a2a5756597f196b6282c0ce11",
+				"dweb:/ipfs/QmdiwLVENVj97oNh84LoKAYEzmMPMfZYYMYGKbHwzfzLzf"
 			]
 		}
 	},
