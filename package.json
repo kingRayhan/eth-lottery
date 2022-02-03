@@ -12,7 +12,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "deploy": "node deploy"
   },
   "repository": {
     "type": "git",
