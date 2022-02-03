@@ -28,5 +28,6 @@ contract Lottery {
         uint256 winnerIndex = randomNumber();
         address payable winner = players[winnerIndex];
         winner.transfer(address(this).balance);
+        players = new address payable[](0);
     }
 }
