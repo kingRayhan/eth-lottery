@@ -1,6 +1,8 @@
+pragma solidity ^0.8.0;
+
 contract Lottery {
     address public owner;
-    address payable[] public players;
+    address payable[] private players;
 
     constructor() {
         owner = msg.sender;
@@ -10,8 +12,7 @@ contract Lottery {
         return players;
     }
 
-    function join() public payable {
-        require(msg.value >= 1 ether);
+    function join() public payable NeedMinimum(1 ether) {
         players.push(payable(msg.sender));
     }
 
@@ -19,15 +20,29 @@ contract Lottery {
         return
             uint256(
                 keccak256(
-                    abi.encodePacked(block.difficulty, block.timestamp, players)
+                    abi.encodePacked(
+                        block.timestamp,
+                        block.difficulty,
+                        msg.sender
+                    )
                 )
-            ) % players.length;
+            );
     }
 
-    function getWinner() public {
+    function getWinner() public onlyOwner {
         uint256 winnerIndex = randomNumber();
         address payable winner = players[winnerIndex];
         winner.transfer(address(this).balance);
         players = new address payable[](0);
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    modifier NeedMinimum(uint256 minimum) {
+        require(msg.value >= minimum);
+        _;
     }
 }
