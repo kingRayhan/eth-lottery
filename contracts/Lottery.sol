@@ -25,9 +25,8 @@ contract Lottery {
     }
 
     function getWinner() public {
-        address self = address(this);
         uint256 winnerIndex = randomNumber();
         address payable winner = players[winnerIndex];
-        winner.transfer(self.balance);
+        winner.transfer(address(this).balance);
     }
 }
