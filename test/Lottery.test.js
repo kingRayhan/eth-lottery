@@ -87,17 +87,17 @@ describe("Lottery", () => {
     ).rejects.toThrow();
   });
 
-  it("send money to winner and reset player array", async () => {
-    const balanceBefore = await web3.eth.getBalance(players[0]);
+  //   it("send money to winner and reset player array", async () => {
+  //     const balanceBefore = await web3.eth.getBalance(players[0]);
 
-    console.log(web3.utils.fromWei(balanceBefore, "ether"));
+  //     console.log(web3.utils.fromWei(balanceBefore, "ether"));
 
-    await contract.methods
-      .join()
-      .send({ from: ownerId, value: web3.utils.toWei("1.5", "ether") });
+  //     await contract.methods
+  //       .join()
+  //       .send({ from: ownerId, value: web3.utils.toWei("1.5", "ether") });
 
-    await contract.methods.getWinner().send({ from: ownerId });
+  //     await contract.methods.getWinner().send({ from: ownerId });
 
-    // expect(await contract.methods.numberOfPlayers().call()).toBe("0");
-  });
+  //     // expect(await contract.methods.numberOfPlayers().call()).toBe("0");
+  //   });
 });
