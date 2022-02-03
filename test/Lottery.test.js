@@ -1,5 +1,7 @@
 const Web3 = require("web3");
-const provider = new Web3.providers.HttpProvider("http://localhost:7545");
+const ganache = require("ganache-cli");
+// const provider = new Web3.providers.HttpProvider("http://localhost:7545");
+const provider = ganache.provider();
 const web3 = new Web3(provider);
 const compiler = require("simple-solc");
 const { expect, it } = require("@jest/globals");
@@ -77,5 +79,25 @@ describe("Lottery", () => {
         .join()
         .send({ from: players[0], value: web3.utils.toWei("1.5", "ether") })
     ).resolves.not.toThrow();
+  });
+
+  it("should only allow to getWinner for owner", async () => {
+    await expect(
+      contract.methods.getWinner().send({ from: players[0] })
+    ).rejects.toThrow();
+  });
+
+  it("send money to winner and reset player array", async () => {
+    const balanceBefore = await web3.eth.getBalance(players[0]);
+
+    console.log(web3.utils.fromWei(balanceBefore, "ether"));
+
+    await contract.methods
+      .join()
+      .send({ from: ownerId, value: web3.utils.toWei("1.5", "ether") });
+
+    await contract.methods.getWinner().send({ from: ownerId });
+
+    // expect(await contract.methods.numberOfPlayers().call()).toBe("0");
   });
 });

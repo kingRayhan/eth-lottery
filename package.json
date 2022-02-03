@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "ganache-cli": "^6.12.2",
     "jest": "^27.4.7",
     "simple-solc": "^1.0.1",
     "web3": "^1.7.0"
